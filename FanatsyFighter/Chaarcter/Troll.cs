@@ -1,8 +1,8 @@
 ﻿namespace FanatsyFighter
 {
-    internal class Goblin : Character, ICanDefend, ICanAttack
+    internal class Troll : Character, ICanAttack, ICanDefend
     {
-        public Goblin(string name, int health, int atatckPoints, int defencePoint) : base(name, health, atatckPoints, defencePoint)
+        public Troll(string name) : base(name, health: 50, attackPoints: 8, defensePoint: 10)
         {
         }
 

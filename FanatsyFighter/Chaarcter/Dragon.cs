@@ -1,8 +1,8 @@
 ﻿namespace FanatsyFighter
 {
-    internal class RatKing : Character, ICanAttack, ICanDefend
+    internal class Dragon : Character, ICanAttack, ICanDefend
     {
-        public RatKing(string name, int health, int attackPoints, int defensePoint) : base(name, health, attackPoints, defensePoint)
+        public Dragon(string name) : base(name, health: 100, attackPoints: 20, defensePoint: 15)
         {
         }
 

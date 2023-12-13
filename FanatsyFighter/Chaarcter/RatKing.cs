@@ -1,8 +1,8 @@
 ﻿namespace FanatsyFighter
 {
-    internal class Troll : Character, ICanAttack, ICanDefend
+    internal class RatKing : Character, ICanAttack, ICanDefend
     {
-        public Troll(string name, int health, int atatckPoints, int defencePoint) : base(name, health, atatckPoints, defencePoint)
+        public RatKing(string name) : base(name, health: 120, attackPoints: 25, defensePoint: 10)
         {
         }
 

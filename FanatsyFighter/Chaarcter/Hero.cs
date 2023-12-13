@@ -8,9 +8,10 @@ namespace FanatsyFighter
 {
     public class Hero : Character, ICanDefend, ICanAttack
     {
-        public Roles Role { get; set; } = Roles.Warrior;
-        public Hero(string name, int health, int attackPoints, int defensePoint) : base(name, health, attackPoints, defensePoint)
+        public Roles Role { get; private set; } = Roles.Warrior;
+        public Hero(string name, Roles role) : base(name, health: 100, attackPoints: 10, defensePoint: 10)
         {
+            this.Role = role;
         }
 
         public void Defense()
