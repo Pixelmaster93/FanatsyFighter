@@ -10,8 +10,9 @@
 
         public int DefensePoint { get; set; }
 
-        public string Role { get; set; }  //Role sta per la calasse
+        //public string Role { get; set; }  //Role sta per la calasse
 
+      
         public Character(string name, int health, int attackPoints, int defensePoint)
         {
             Name = name;

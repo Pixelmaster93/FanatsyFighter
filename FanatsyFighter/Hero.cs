@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace FanatsyFighter
 {
-    public class Hero : Character
+    public class Hero : Character, ICanDefend, ICanAttack
     {
         public Roles Role { get; set; } = Roles.Warrior;
-        public Hero(string name, string health, string atatckPoints, string defencePoint) : base(name, health, atatckPoints, defencePoint)
+        public Hero(string name, int health, int attackPoints, int defensePoint) : base(name, health, attackPoints, defensePoint)
         {
+        }
+
+        public void Defense()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Attack()
+        {
+            throw new NotImplementedException();
         }
     }
 
