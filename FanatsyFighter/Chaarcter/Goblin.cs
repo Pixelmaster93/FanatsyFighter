@@ -4,6 +4,7 @@
     {
         public Goblin(string name) : base(name, health: 30, attackPoints: 3, defensePoint: 2)
         {
+
         }
 
         public void Attack()

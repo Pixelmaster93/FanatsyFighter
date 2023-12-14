@@ -10,12 +10,12 @@ namespace FanatsyFighter
 
         public bool IsGameRunning { get; private set; }
 
-        public Game() //costruttore senza paarmetri
+        public Game() //costruttore senza paarmetri, il costruttore ha lo stesso nome della classe
         {
             this._enemies = new List<Character>()
             {
-                new Dragon("Red Dregon"),
-                new Dragon("Golden Dregon"),
+                new Dragon("Red Dragon"),
+                new Dragon("Golden Dragon"),
                 new Goblin("Goblin #1"),
                 new Goblin("Goblin #2"),
                 new Troll("Paolo"),
@@ -46,13 +46,87 @@ namespace FanatsyFighter
             //iniziamo i turni
         }
 
+
+        /*
+        private bool IsPlayerNAmeValid(string name, out string result)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                result = "The name cannot be empty or white sapces";
+                return false;
+            }
+               
+
+            string[] prohibitedWords = new string[]
+            {
+                ".",
+                ",",
+                ";",
+                ":",
+            };
+
+            foreach (string prohibitedWord in prohibitedWords)
+            {
+                if (name.Contains(prohibitedWord))
+                {
+                    result = $"The name cannot include {prohibitedWord}";
+                    return false;
+                }
+            }
+            result = "Name is ok";
+            return true;
+        }
+
         private string GetPlayerNAme() 
         {
             Console.WriteLine("Please choose your name");
             var name = Console.ReadLine();
 
+            if (!IsPlayerNAmeValid(name, result: out string erroeMessage))
+            {
+                Console.WriteLine(erroeMessage);
+            }
+        */
+
+
+        private bool IsPlayerNAmeValid(string name)
+        {
             if (string.IsNullOrWhiteSpace(name))
-                Console.WriteLine("The name cannot be empty spaces");
+            {
+                result = "The name cannot be empty or white sapces";
+                return false;
+            }
+
+
+            string[] prohibitedWords = new string[]
+            {
+                ".",
+                ",",
+                ";",
+                ":",
+            };
+
+            foreach (string prohibitedWord in prohibitedWords)
+            {
+                if (name.Contains(prohibitedWord))
+                {
+                    result = $"The name cannot include {prohibitedWord}";
+                    return false;
+                }
+            }
+            result = "Name is ok";
+            return true;
+        }
+
+        private string GetPlayerNAme()
+        {
+            Console.WriteLine("Please choose your name");
+            var name = Console.ReadLine();
+
+            if (!IsPlayerNAmeValid(name, result: out string erroeMessage))
+            {
+                Console.WriteLine(erroeMessage);
+            }
 
             //TODO:   richiedere il nome al giocatore
 
