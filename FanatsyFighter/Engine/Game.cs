@@ -88,13 +88,24 @@ namespace FanatsyFighter
             }
         */
 
+        private class PlayerNameCheckResult
+        {
+            public bool IsValid { get; }
 
-        private bool IsPlayerNAmeValid(string name)
+            public string ErrorMessage { get; }
+
+            public PlayerNameCheckResult(bool isValid, string errorMessage)
+            {
+                IsValid = isValid;
+                ErrorMessage = errorMessage;
+            }
+        }
+
+        private PlayerNameCheckResult IsPlayerNAmeValid(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                result = "The name cannot be empty or white sapces";
-                return false;
+                return new PlayerNameCheckResult(false, "The name cannot be empty or white sapces");
             }
 
 
@@ -110,27 +121,27 @@ namespace FanatsyFighter
             {
                 if (name.Contains(prohibitedWord))
                 {
-                    result = $"The name cannot include {prohibitedWord}";
-                    return false;
+                    return new PlayerNameCheckResult(false, $"The name cannot include {prohibitedWord}");
                 }
             }
-            result = "Name is ok";
-            return true;
+
+            return new PlayerNameCheckResult(true, "Name is ok");
         }
 
         private string GetPlayerNAme()
         {
             Console.WriteLine("Please choose your name");
             var name = Console.ReadLine();
+            var playerNameCheck = IsPlayerNAmeValid(name);
 
-            if (!IsPlayerNAmeValid(name, result: out string erroeMessage))
+            if (!playerNameCheck.IsValid)
             {
-                Console.WriteLine(erroeMessage);
+                Console.WriteLine(playerNameCheck.ErrorMessage);
             }
 
             //TODO:   richiedere il nome al giocatore
 
-            return name!;                                               //Con il punto esclamativo gli dico che sono sicuro che non sarà null
+            return name!;                                               
         }
 
         private void DisplayWekcimeMessage()
